@@ -19,7 +19,7 @@ public class Predator extends Animal {
     public String toString() {
         return "Predator{"
                 + "family='" + getFamily() + '\''
-                + "food='" + food + '\''
+                + " food='" + food + '\''
                 + '}';
     }
 }

@@ -14,8 +14,8 @@ public class Tiger extends Predator {
     public String toString() {
         return "Tiger{"
                 + "family='" + getFamily() + '\''
-                + "food='" + getFood() + '\''
-                + "name='" + name + '\''
+                + " food='" + getFood() + '\''
+                + " name='" + name + '\''
                 + '}';
     }
 }
