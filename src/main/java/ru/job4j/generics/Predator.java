@@ -3,12 +3,13 @@ package ru.job4j.generics;
 public class Predator extends Animal {
     private String food;
 
-    public Predator(String name, String food) {
-        super(name);
+    public Predator(String family, String food) {
+        super(family);
         this.food = food;
     }
 
     public Predator() {
+
     }
 
     public String getFood() {
@@ -18,7 +19,7 @@ public class Predator extends Animal {
     @Override
     public String toString() {
         return "Predator{"
-                + "name='" + getName() + '\''
+                + "family='" + getFamily() + '\''
                 + "food='" + food + '\''
                 + '}';
     }

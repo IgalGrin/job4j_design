@@ -10,9 +10,9 @@ public class Generics {
         List<Animal> first = new ArrayList<>();
         List<Predator> second = new ArrayList<>();
         List<Tiger> third = new ArrayList<>();
-        first.add(new Animal("Васька"));
-        second.add(new Predator("Пушок", "рыба"));
-        third.add(new Tiger("Шерхан", "мясо", "кошачьи"));
+        first.add(new Animal("кошачьи"));
+        second.add(new Predator("кошачьи", "мясо"));
+        third.add(new Tiger("кошачьи", "мясо", "Шерхан"));
 
         gen.printObject(first);
         gen.printObject(second);
@@ -34,6 +34,7 @@ public class Generics {
             Object next = it.next();
             System.out.println("Текущий элемент: " + next);
         }
+
     }
 
     public void printBoundedWildCard(List<? extends Animal> list) {

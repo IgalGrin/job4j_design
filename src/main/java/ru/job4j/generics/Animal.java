@@ -1,24 +1,24 @@
 package ru.job4j.generics;
 
 public class Animal {
-    private String name;
+    private String family;
 
-    public Animal(String name) {
-        this.name = name;
+    public Animal(String family) {
+        this.family = family;
     }
 
     public Animal() {
 
     }
 
-    public String getName() {
-        return name;
+    public String getFamily() {
+        return family;
     }
 
     @Override
     public String toString() {
         return "Animal{"
-                + "name='" + name + '\''
+                + "family='" + family + '\''
                 + '}';
     }
 }

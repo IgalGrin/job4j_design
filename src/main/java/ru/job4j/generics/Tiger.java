@@ -1,21 +1,22 @@
 package ru.job4j.generics;
 
 public class Tiger extends Predator {
-    String family = "cat";
-    Tiger(String name, String food, String family) {
-        super(name, food);
-        this.family = family;
+    String name;
+    Tiger(String family, String food, String name) {
+        super(family, food);
+        this.name = name;
     }
 
     Tiger() {
+
     }
 
     @Override
     public String toString() {
         return "Tiger{"
-                + "name='" + getName() + '\''
+                + "family='" + getFamily() + '\''
                 + "food='" + getFood() + '\''
-                + "family='" + family + '\''
+                + "name='" + name + '\''
                 + '}';
     }
 }
