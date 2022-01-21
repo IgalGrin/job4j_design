@@ -34,7 +34,6 @@ public class Generics {
             Object next = it.next();
             System.out.println("Текущий элемент: " + next);
         }
-
     }
 
     public void printBoundedWildCard(List<? extends Animal> list) {

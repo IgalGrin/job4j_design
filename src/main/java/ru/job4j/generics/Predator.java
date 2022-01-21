@@ -9,7 +9,6 @@ public class Predator extends Animal {
     }
 
     public Predator() {
-
     }
 
     public String getFood() {

@@ -8,7 +8,6 @@ public class Tiger extends Predator {
     }
 
     Tiger() {
-
     }
 
     @Override
