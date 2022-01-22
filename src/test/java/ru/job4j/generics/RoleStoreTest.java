@@ -90,8 +90,8 @@ public class RoleStoreTest {
     }
 
     @Test
-    public void whenDeleteNullRoleThenTrue() {
+    public void whenDeleteNullRoleThenFalse() {
         RoleStore store = new RoleStore();
-        assertThat(store.delete("3"), is(true));
+        assertThat(store.delete("3"), is(false));
     }
 }

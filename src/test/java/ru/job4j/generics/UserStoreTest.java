@@ -90,8 +90,8 @@ public class UserStoreTest {
     }
 
     @Test
-    public void whenDeleteNullUserThenTrue() {
+    public void whenDeleteNullUserThenFalse() {
         UserStore store = new UserStore();
-        assertThat(store.delete("3"), is(true));
+        assertThat(store.delete("3"), is(false));
     }
 }
