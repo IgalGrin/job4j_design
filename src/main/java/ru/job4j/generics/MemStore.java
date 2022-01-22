@@ -18,7 +18,6 @@ public final class MemStore<T extends Base> implements Store<T> {
 
     @Override
     public boolean delete(String id) {
-        storage.remove(id);
         return storage.remove(id, storage.get(id));
     }
 
