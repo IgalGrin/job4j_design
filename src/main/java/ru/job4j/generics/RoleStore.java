@@ -15,27 +15,18 @@ public class RoleStore implements Store<Role> {
 
     @Override
     public boolean replace(String id, Role model) {
-        if (storage.containsKey(id)) {
-            storage.put(id, model);
-            return true;
-        }
-        return false;
+        storage.put(id, model);
+        return storage.containsKey(id) ? true : false;
     }
 
     @Override
     public boolean delete(String id) {
-        if (storage.containsKey(id)) {
-            storage.remove(id);
-            return true;
-        }
-        return false;
+        storage.remove(id);
+        return storage.containsKey(id) ? true : false;
     }
 
     @Override
     public Role findById(String id) {
-        if (storage.containsKey(id)) {
-            return storage.get(id);
-        }
-        return null;
+        return storage.containsKey(id) ? storage.get(id) : null;
     }
 }
