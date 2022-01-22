@@ -68,4 +68,30 @@ public class RoleStoreTest {
         assertThat(result.getRole(), is("Electrician"));
     }
 
+    @Test
+    public void whenReplaceThenTrue() {
+        RoleStore store = new RoleStore();
+        store.add(new Role("1", "Electrician"));
+        assertThat(store.replace("1", new Role("1", "Mechanic")), is(true));
+    }
+
+    @Test
+    public void whenReplaceNullRoleThenFalse() {
+        RoleStore store = new RoleStore();
+        store.add(new Role("1", "Electrician"));
+        assertThat(store.replace("3", new Role("3", "Mechanic")), is(false));
+    }
+
+    @Test
+    public void whenDeleteThenTrue() {
+        RoleStore store = new RoleStore();
+        store.add(new Role("1", "Electrician"));
+        assertThat(store.delete("1"), is(true));
+    }
+
+    @Test
+    public void whenDeleteNullRoleThenTrue() {
+        RoleStore store = new RoleStore();
+        assertThat(store.delete("3"), is(true));
+    }
 }

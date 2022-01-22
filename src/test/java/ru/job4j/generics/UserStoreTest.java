@@ -68,4 +68,30 @@ public class UserStoreTest {
         User result = store.findById("1");
         assertThat(result.getUsername(), is("Petr"));
     }
+    @Test
+    public void whenReplaceThenTrue() {
+        UserStore store = new UserStore();
+        store.add(new User("1", "Maxim"));
+        assertThat(store.replace("1", new User("1", "Petr")), is(true));
+    }
+
+    @Test
+    public void whenReplaceNullUserThenFalse() {
+        UserStore store = new UserStore();
+        store.add(new User("1", "Maxim"));
+        assertThat(store.replace("3", new User("3", "Petr")), is(false));
+    }
+
+    @Test
+    public void whenDeleteThenTrue() {
+        UserStore store = new UserStore();
+        store.add(new User("1", "Petr"));
+        assertThat(store.delete("1"), is(true));
+    }
+
+    @Test
+    public void whenDeleteNullUserThenTrue() {
+        UserStore store = new UserStore();
+        assertThat(store.delete("3"), is(true));
+    }
 }
