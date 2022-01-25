@@ -23,7 +23,6 @@ public class SimpleArrayList<T> implements List<T> {
 
     @Override
     public T set(int index, T newValue) {
-        Objects.checkIndex(index, container.length);
         T removable = get(index);
         container[index] = newValue;
         return removable;
@@ -42,6 +41,7 @@ public class SimpleArrayList<T> implements List<T> {
 
     @Override
     public T get(int index) {
+        Objects.checkIndex(index, size);
         return container[index];
     }
 
