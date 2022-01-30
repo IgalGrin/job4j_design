@@ -1,4 +1,4 @@
-package ru.job4j.collection.list.forwardlinked;
+package ru.job4j.collection.forwardlinked;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

@@ -1,6 +1,4 @@
-package ru.job4j.collection.list.forwardlinked;
-
-import static org.junit.Assert.*;
+package ru.job4j.collection.forwardlinked;
 
 import org.junit.Test;
 

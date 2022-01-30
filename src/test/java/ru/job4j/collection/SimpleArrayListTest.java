@@ -1,8 +1,10 @@
-package ru.job4j.collection.list;
+package ru.job4j.collection;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ru.job4j.collection.list.List;
+import ru.job4j.collection.list.SimpleArrayList;
 
 import java.util.ConcurrentModificationException;
 import java.util.Iterator;
