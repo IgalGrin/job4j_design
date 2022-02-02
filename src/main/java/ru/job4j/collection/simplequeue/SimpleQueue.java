@@ -11,14 +11,17 @@ public class SimpleQueue<T> {
     private final SimpleStack<T> out = new SimpleStack<>();
 
     public T poll() {
-        if (inCount == 0) {
-            throw new NoSuchElementException();
+        if (outCount == 0) {
+            if (inCount == 0) {
+                throw new NoSuchElementException();
+            }
+            while (inCount > 0) {
+                out.push(in.pop());
+                inCount--;
+                outCount++;
+            }
         }
-        while (outCount <= inCount) {
-            out.push(in.pop());
-            outCount++;
-            inCount--;
-        }
+        outCount--;
         return out.pop();
     }
 
