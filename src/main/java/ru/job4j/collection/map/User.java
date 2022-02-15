@@ -1,34 +1,36 @@
 package ru.job4j.collection.map;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class User {
     private String name;
     private int children;
-    private int calendarBirthday;
+    private Calendar birthday;
 
-    public User(String name, int children, int calendarBirthday) {
+    public User(String name, int children, Calendar birthday) {
         this.name = name;
         this.children = children;
-        this.calendarBirthday = calendarBirthday;
+        this.birthday = birthday;
     }
 
     @Override
-    public String toString() {
-        return "User{"
-                + "name='" + name + '\''
-                + ", children=" + children
-                + ", calendarBirthday=" + calendarBirthday
-                + '}';
+    public int hashCode() {
+        return Objects.hash(name, children, birthday);
     }
 
     public static void main(String[] args) {
-        User userA = new User("Alex", 2, 180579);
-        User userB = new User("Alex", 2, 180579);
+        User userA = new User("Alex", 2,
+                new GregorianCalendar(1979, Calendar.MAY, 18));
+        User userB = new User("Alex", 2,
+                new GregorianCalendar(1979, Calendar.MAY, 18));
         Map<User, Object> map = new HashMap<>();
         map.put(userA, new Object());
         map.put(userB, new Object());
-        System.out.println(map);
+        for (User key : map.keySet()) {
+            int hashCode = key.hashCode();
+            int hash = Objects.hash(hashCode);
+            int index = hash & (16 - 1);
+            System.out.println("backet = " + index);
+        }
     }
 }
