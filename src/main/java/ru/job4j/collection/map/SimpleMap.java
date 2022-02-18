@@ -16,7 +16,7 @@ public class SimpleMap<K, V> implements SMap<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        if (count == capacity * LOAD_FACTOR) {
+        if (count >= capacity * LOAD_FACTOR) {
             expand();
         }
         boolean res = false;
@@ -39,8 +39,16 @@ public class SimpleMap<K, V> implements SMap<K, V> {
     }
 
     private void expand() {
-        table = Arrays.copyOf(table, capacity * 2);
         capacity *= 2;
+        MapEntry<K, V>[] oldTable = table;
+        table = new MapEntry[capacity];
+        for (MapEntry<K, V> oldEntry : oldTable) {
+            if (oldEntry != null) {
+                put(oldEntry.key, oldEntry.value);
+                count--;
+            }
+        }
+        modCount--;
     }
 
     public int count() {
@@ -49,21 +57,25 @@ public class SimpleMap<K, V> implements SMap<K, V> {
 
     @Override
     public V get(K key) {
-        MapEntry<K, V> res = table[hash(key.hashCode())];
-        return res == null ? null : res.value;
+        V res = null;
+        int i = hash(key.hashCode());
+        if (table[i] != null && key.equals(table[i].key)) {
+            res = table[i].value;
+        }
+        return res;
     }
 
     @Override
     public boolean remove(K key) {
         boolean res = false;
         int i = hash(key.hashCode());
-       if (table[i] != null) {
+        if (table[i] != null && key.equals(table[i].key)) {
            table[i] = null;
            res = true;
            count--;
            modCount++;
-       }
-       return res;
+        }
+        return res;
     }
 
     @Override
