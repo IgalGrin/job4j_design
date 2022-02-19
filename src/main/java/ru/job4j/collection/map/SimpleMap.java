@@ -86,14 +86,13 @@ public class SimpleMap<K, V> implements SMap<K, V> {
 
             @Override
             public boolean hasNext() {
-                boolean rsl = pointer < capacity;
                 if (expectedModCount != modCount) {
                     throw new ConcurrentModificationException();
                 }
-                while (rsl && table[pointer] == null) {
+                while (pointer < capacity && table[pointer] == null) {
                     pointer++;
                 }
-                return rsl;
+                return pointer < capacity;
             }
 
             @Override
