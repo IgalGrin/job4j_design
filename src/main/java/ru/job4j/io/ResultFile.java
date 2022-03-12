@@ -9,6 +9,8 @@ public class ResultFile {
             out.write(Arrays.deepToString(new Matrix().multiple(3)).getBytes());
             out.write(System.lineSeparator().getBytes());
             out.write(Arrays.deepToString(new Matrix().multiple(4)).getBytes());
+            out.write(System.lineSeparator().getBytes());
+            out.write(Arrays.deepToString(new Matrix().multiple(5)).getBytes());
         } catch (Exception e) {
             e.printStackTrace();
         }
