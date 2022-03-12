@@ -10,7 +10,7 @@ public class ResultFile {
             out.write(System.lineSeparator().getBytes());
             out.write(Arrays.deepToString(Matrix.multiple(3)).getBytes());
             out.write(System.lineSeparator().getBytes());
-            out.write(Arrays.deepToString(Matrix.multiple(5)).getBytes());
+            out.write(Arrays.deepToString(Matrix.multiple(4)).getBytes());
         } catch (Exception e) {
             e.printStackTrace();
         }
