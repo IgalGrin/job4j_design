@@ -10,7 +10,7 @@ public class ConfigTest {
         String path = "./data/pair_without_comment.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value("name"),is("Petr Arsentev"));
+        assertThat(config.value("name"), is("Petr Arsentev"));
     }
 
     @Test
@@ -21,11 +21,11 @@ public class ConfigTest {
         assertThat(config.value("name"), is("Petr Arsentev"));
     }
 
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void whenValueIsEmpty() {
         String path = "./data/value_is_empty.properties";
         Config config = new Config(path);
         config.load();
-        assertThat(config.value("name"), is("Petr Arsentev"));
+        assertThat(config.value("name"), is(""));
     }
 }
