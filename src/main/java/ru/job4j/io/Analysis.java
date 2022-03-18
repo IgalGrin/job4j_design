@@ -9,9 +9,7 @@ public class Analysis {
             boolean on = true;
             for (String line = ""; line != null; line = read.readLine()) {
                 if (line.contains("200") || line.contains("300")) {
-                    if (on) {
-                        continue;
-                    } else {
+                    if (!on) {
                         String[] s = line.split(" ");
                         out.println(s[1]);
                         on = true;
@@ -21,8 +19,6 @@ public class Analysis {
                         String[] s = line.split(" ");
                         out.print(s[1] + ";");
                         on = false;
-                    } else {
-                        continue;
                     }
                 }
             }
