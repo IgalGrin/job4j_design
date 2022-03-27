@@ -1,4 +1,6 @@
-package ru.job4j.io;
+package ru.job4j.io.file;
+
+import ru.job4j.io.Matrix;
 
 import java.io.FileOutputStream;
 import java.util.Arrays;
